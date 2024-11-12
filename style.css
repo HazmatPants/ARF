@@ -3,6 +3,6 @@ body {
   color: white;
 }
 
-.help-cursor {
+.help-cursor:hover {
   cursor: help;
 }
