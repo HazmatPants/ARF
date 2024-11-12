@@ -4,5 +4,5 @@ body {
 }
 
 .help-cursor:hover {
-  cursor: help;
+  cursor: pointer;
 }
