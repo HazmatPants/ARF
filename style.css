@@ -2,6 +2,7 @@ body {
   background-color: black;
   color: white;
   text-align: center;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .button1 {
@@ -10,6 +11,7 @@ body {
   background-color: black;
   color: white;
   border: 2px solid white;
+  transition-duration: 500ms;
 }
 
 .button1:hover {
