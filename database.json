@@ -2,7 +2,7 @@
     {
       "id": 1,
       "name": "The Void",
-      "description": "The Void is an infinitely empty plane (as far as we know), we have no idea how far the void goes on for.\nAn attempt was made to send a quadcopter drone into the void, the drone instantly just floated away as soon as it entered. This suggests there is no gravity and no air in the void.",
+      "description": "The Void is an infinitely empty plane (as far as we know), we have no idea how far the void goes on for.<br>An attempt was made to send a quadcopter drone into the void, the drone instantly just floated away as soon as it entered. This suggests there is no gravity and no air in the void.",
       "status": "Critical",
       "lastObserved": "2024-11-4"
     }
