@@ -19,23 +19,23 @@
 
     <h1>Anomaly DB</h1>
 
-    <div id="anom-db"></div>
+    <div id="anomaly-database"></div>
 
     <script>
-    fetch('database.json')
+        fetch('database.json')
         .then(response => response.json())
         .then(data => {
-        const databaseDiv = document.getElementById('anom-db');
-        data.forEach(entry => {
+            const databaseDiv = document.getElementById('anomaly-database');
+            data.forEach(entry => {
             const entryDiv = document.createElement('div');
             entryDiv.innerHTML = `
-            <h2>${entry.name}</h2>
-            <p><strong>Description:</strong> ${entry.description}</p>
-            <p><strong>Status:</strong> ${entry.status}</p>
-            <p><strong>Last Observed:</strong> ${entry.lastObserved}</p>
+                <h2>${entry.name}</h2>
+                <p><strong>Description:</strong> ${entry.description}</p>
+                <p><strong>Status:</strong> ${entry.status}</p>
+                <p><strong>Last Observed:</strong> ${entry.lastObserved}</p>
             `;
             databaseDiv.appendChild(entryDiv);
-        });
+            });
         })
         .catch(error => console.error('Error loading database:', error));
     </script>
