@@ -2,11 +2,3 @@ body {
   background-color: black;
   color: white;
 }
-
-.help-cursor {
-  background-color: black;
-}
-
-.help-cursor:hover {
-  cursor: pointer;
-}
