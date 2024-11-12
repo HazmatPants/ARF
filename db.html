@@ -5,6 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>ARF - Anomaly DB</title>
+    <style>
+        .entry {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        h2 {
+            margin: 0; 
+        }
+
+        button.expand-btn {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button.expand-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .full-description {
+            margin-top: 10px;
+            font-size: 1.1em;
+            color: #333;
+        }
+    </style>
   </head>
   <body>
     <a href="index.html">
@@ -21,21 +54,45 @@
 
     <div id="anomaly-database"></div>
 
+    <div id="anomaly-database"></div>
+
     <script>
-        fetch('database.json')
+    fetch('database.json')
         .then(response => response.json())
         .then(data => {
-            const databaseDiv = document.getElementById('anomaly-database');
-            data.forEach(entry => {
+        const databaseDiv = document.getElementById('anomaly-database');
+        data.forEach(entry => {
             const entryDiv = document.createElement('div');
+            entryDiv.classList.add('entry');
+            
+            // This is what will show by default (short description + title)
             entryDiv.innerHTML = `
-                <h2>${entry.name}</h2>
+            <h2>${entry.name}</h2>
+            <p><strong>Status:</strong> ${entry.status}</p>
+            <p><strong>Last Observed:</strong> ${entry.lastObserved}</p>
+            <button class="expand-btn">Expand</button>
+            <div class="full-description" style="display: none;">
                 <p><strong>Description:</strong> ${entry.description}</p>
-                <p><strong>Status:</strong> ${entry.status}</p>
-                <p><strong>Last Observed:</strong> ${entry.lastObserved}</p>
+            </div>
             `;
-            databaseDiv.appendChild(entryDiv);
+            
+            // Add event listener to the "Expand" button
+            const expandBtn = entryDiv.querySelector('.expand-btn');
+            const fullDescription = entryDiv.querySelector('.full-description');
+
+            expandBtn.addEventListener('click', () => {
+            // Toggle visibility of the full description
+            if (fullDescription.style.display === 'none') {
+                fullDescription.style.display = 'block';
+                expandBtn.textContent = 'Collapse';
+            } else {
+                fullDescription.style.display = 'none';
+                expandBtn.textContent = 'Expand';
+            }
             });
+
+            databaseDiv.appendChild(entryDiv);
+        });
         })
         .catch(error => console.error('Error loading database:', error));
     </script>
